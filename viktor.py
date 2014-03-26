@@ -7,6 +7,7 @@ import csv
 import itertools
 from pylab import *
 import matplotlib.pyplot as plt
+import matplotlib
 
 lines={'A':0,'B':1,'C':2,'D':3,'E':4,'F':5,'G':6,'H':7}
 
@@ -43,5 +44,8 @@ for well in wells.keys():
     axarr[y,x].plot(wells[well],'b')
     #plt.xlim(xmin,xmax)
     axarr[y,x].set_ylim((ymin,ymax))
+    for i in (axarr[y,x].get_xticklabels() + axarr[y,x].get_yticklabels()):
+        i.set_fontsize(4)
 
+plt.gcf().set_size_inches(15,10)
 plt.savefig(args.output)
